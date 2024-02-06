@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tally Count</title>
+
+    <link rel="stylesheet" href="/IWA1/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;900&display=swap" rel="stylesheet">
+    <script src="/IWA1/scripts.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <h1 class="header__title">
+            Tally Count
+        </h1>
+    </header>
+
+    <!-- <aside class="controls">
+        <label>
+            <span>Display</span>
+                <select>
+                    <option>Single</option>
+                    <option>Multiple</option>
+                </select>
+        </label>
+        <label>
+            <span>Counter</span>
+                <select>
+                    <option>Counter 1</option>
+                    <option>Counter 2</option>
+                    <option>Counter 3</option>
+                </select>
+        </label>
+
+        <button>Settings</button>
+    </aside> -->
+    <main class = "counter">
+            <input data-key="number" class="counter__value" readonly value="0">
+            <div class="counter__actions">
+            <button data-key="subtract" class="counter__button  .counter__button_first">-</button>
+            <button data-key="add" class="counter__button">+</button>
+            </div>
+    </main>
+    <footer class="footer">This is an attempt to recreate the Tally Count App <a class="footer__link" href="https://tallycount.app/"></a> for educational purposes only. No intellectual property within is claimed as my own</footer>
+</body>
+</html>
