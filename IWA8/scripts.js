@@ -15,15 +15,16 @@ const sarahPostal = '0310'
 
 const leo = {
 	name: leoName,
-	balance: "R" + parseFloat(leoBalance).toFixed(2),
-	'access-id': "47afb389-8014-4d0b-aff3-e40203d2107f",
 	age: 24,
-}
-const leoAddress = {
+	'access-id': "47afb389-8014-4d0b-aff3-e40203d2107f",
+	balance: "R" + parseFloat(leoBalance).toFixed(2),
+	leoAddress: {
 		number: leoNumber,
 		street: leoStreet,
 		"postal-code" : leoPostal,
 	}
+}
+
 
 
 const sarah = {
@@ -31,12 +32,12 @@ const sarah = {
 	age: 62,
 	'access-id': '6b279ae5-5657-4240-80e9-23f6b635f7a8',
 	balance: "R" + parseFloat(sarahBalance).toFixed(2),
-}
-const sarahAddress = {
+	sarahAddress: {
 		number: sarahNumber,
 		street: sarahStreet,
 		'postal-code': sarahPostal,
 	}
+}
 
-console.log(leo, leoAddress);
-console.log(sarah, sarahAddress);
+console.log(leo, leo.leoAddress[`postal-code`]);
+console.log(sarah, sarah.sarahAddress[`postal-code`]);

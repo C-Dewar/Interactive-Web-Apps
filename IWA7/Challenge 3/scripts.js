@@ -12,15 +12,16 @@ const divider = '----------------------------------'
 
 
 const owed = (Math.abs(leoBalance) + Math.abs(sarahBalance)).toFixed(2);
-const leo = `${leoName+" "+leoSurname.trim()+ " " + "Owed:"+("   (R "+ Math.abs(leoBalance).toFixed(2))+")"}`;
-const sarah =`${sarahName.trim()+" "+sarahSurname + " " +"Owed:"+("  (R "+ Math.abs(sarahBalance).toFixed(2))+")"}`;
+const formattedOwed = parseFloat(owed).toLocaleString("en-ZA", { style: "currency", currency: "ZAR" });
+const leo = `${leoName+" "+leoSurname.trim()+ " " + "(Owed:"+("   R "+ Math.abs(leoBalance).toFixed(2))+")"}`;
+const sarah =`${sarahName.trim()+" "+sarahSurname + " " +"(Owed:"+("  R "+ Math.abs(sarahBalance).toFixed(2))+")"}`;
 const total = "Total amount owed: "
 const between = " "
 const result = 
 `${leo}
 ${sarah}
 ${divider}
-${total+ 'R' +owed}
+${total+ formattedOwed.replace(",", ".")}
 ${divider}`;
 // possibly use /n precursor to each string value so that it is represented on its own line. 
 console.log(result)

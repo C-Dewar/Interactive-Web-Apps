@@ -9,10 +9,13 @@ function containsOnlyNumbers(phoneNumber) {
     // returns true or false depending on phoneNumber is a 'string' and doesn't contain letters != 0 to 9.
     return isValidString;
   }
-  
+
 
 const primaryValid = containsOnlyNumbers(primaryPhone);
 const secondaryValid = containsOnlyNumbers(secondaryPhone);
 
 console.log('Primary phone is valid numerical string:', primaryValid)
 console.log('Secondary phone is valid numerical string:', secondaryValid )
+
+
+console.log(!isNaN(Number(primaryPhone)), !isNaN(Number))
