@@ -66,25 +66,24 @@ console.log(holidays[futureId]?.name || `ID ${futureId} not created yet`)
 
 const copied = structuredClone(holidays[6])
 //alternative: spread operator "...copied"
-//console.log(copied);
 
+copied.date.setHours(0,0,0,0);
 copied.name = 'X-mas Day',
 //changed the name of the copied clone to 'X-mas Day'
-
+// console.log(copied);
 console.log(copied.name)
 
 let isEarlier = copied.date.getTime() <= holidays[6].date.getTime()
 
 if (copied.date.getTime() <= holidays[6].date.getTime()){   
         console.log('New date is earlier:', isEarlier)
-       
+        holidays[6].date.setHours(0,0,0,0);
 }
 
 if(isEarlier === true){
-        console.log(isEarlier)
         console.log('ID change:', holidays[christmas].id != copied.id || copied.id);
         console.log('Name change:', holidays[6].name !== copied.name ? copied.name : holidays[6].name);
-        console.log('Date change:', holidays[6].date !== copied.date ? holidays[6].date : copied.date);
+        console.log('Date change:', holidays[6].date !== copied.date ? copied.date : holidays[6].date);
 }
 
 // const firstHolidayTimestamp = Math.min(holidays.length);
@@ -117,16 +116,14 @@ const lastHolidayTimestamp = Math.max(
     holidays[8].date.getTime(),
 )
 const firstDay = new Date(firstHolidayTimestamp).getDate();
-console.log(firstDay);
+// console.log(firstDay);
 const firstMonth = new Date(firstHolidayTimestamp).getMonth() + 1;
-console.log(firstMonth);
+// console.log(firstMonth);
 const lastDay = new Date(lastHolidayTimestamp).getDate();
-console.log(lastDay);
+// console.log(lastDay);
 const lastMonth = new Date(lastHolidayTimestamp).getMonth() + 1;
-console.log(lastMonth);
-if(firstDay < 10){
-    firstDay.padStart("0");
-}
+// console.log(lastMonth);
+
 console.log(`${firstDay}/${firstMonth}/${currentYear}`);   
 console.log(`${lastDay}/${lastMonth}/${currentYear}`);
 
