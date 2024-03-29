@@ -45,10 +45,11 @@ checkinElement0 = document.querySelector('#book1 .checkin')
 checkinValue0 = checkinElement0.innerHTML
 
 // Print elements and values
-console.log(statusElement0)    // <span blah blah>overdue</span>
+console.log(statusElement0)    //
 console.log(statusValue0)      // overdue
 console.log(STATUS_MAP[statusValue0])
 console.log(STATUS_MAP[statusValue0].color)
+
 
 console.log(reserveElement0)
 console.log(reserveValue0)
@@ -65,6 +66,7 @@ statusElement0.style.color = STATUS_MAP[statusValue0].color
 reserveElement0.disabled = !STATUS_MAP[statusValue0].canReserve
 checkoutElement0.disabled = !STATUS_MAP[statusValue0].canCheckout
 checkinElement0.disabled = !STATUS_MAP[statusValue0].canCheckIn
+// checkinElement0.style.color = checkinElement0.disabled ? 'grey' : 'inherit';
 
 
 // Book 2
@@ -84,7 +86,7 @@ statusElement1.style.color = STATUS_MAP[statusValue1].color
 reserveElement1.disabled = !STATUS_MAP[statusValue1].canReserve
 checkoutElement1.disabled = !STATUS_MAP[statusValue1].canCheckout
 checkinElement1.disabled = !STATUS_MAP[statusValue1].canCheckIn
-
+// checkinElement1.style.color = checkinElement1.disabled ? 'grey' : 'inherit';
 // Book 3 
 
 statusElement2 = document.querySelector('#book3 .status')
@@ -103,3 +105,6 @@ statusElement2.style.color = STATUS_MAP[statusValue2].color
 reserveElement2.disabled = !STATUS_MAP[statusValue2].canReserve
 checkoutElement2.disabled = !STATUS_MAP[statusValue2].canCheckout
 checkinElement2.disabled = !STATUS_MAP[statusValue2].canCheckIn
+// checkinElement2.style.color = checkinElement2.disabled ? 'grey' : 'inherit';
+
+checkoutElement0.style.color
