@@ -79,17 +79,7 @@ const handleHelpToggle = (event) => {
         html.other.add.focus();
     }
 };
-// /**
-//  * Toggles open attribute to show or hide the Add Order form
-//  *  @param {Event} event
-//  */ 
-// const handleAddToggle = event => {
-//     if(event.target.hasAttribute("data-add-cancel")){
-//         html.add.overlay.toggleAttribute("open");
-//         html.add.form.reset();
-//         html.other.add.focus();
-//     }
-// };
+
 const handleAddToggle = () => {
     const current = html.add.overlay.open
 
@@ -131,22 +121,21 @@ const handleAddSubmit = (event) => {
  * Clicking the cancel button will hide the edit order form.
  * @param {Event} event 
  */
+
 const handleEditToggle = (event) => {
-    const parentElement = event.target.closest(".order");
-    if(parentElement?.matches(".order")){
+    const targetElement = event.target.closest(".order");
+    if (targetElement) {
         html.edit.overlay.open = true;
-        const id = parentElement.getAttribute("data-id");
-        const {title, table, column} = state.orders[id];
+        const id = targetElement.getAttribute("data-id");
+        const { title, table, column } = state.orders[id];
         html.edit.title.value = title;
         html.edit.table.value = table;
         html.edit.column.value = column;
         html.edit.id.setAttribute("data-edit-id", id);
-    }
-    if(event.target.hasAttribute("data-edit-cancel")){
+    } else if (event.target.hasAttribute("data-edit-cancel")) {
         html.edit.overlay.open = false;
     }
 };
-
 
 /**
  * Updates the specified object in the state orders object 
@@ -154,42 +143,18 @@ const handleEditToggle = (event) => {
  */
 const handleEditSubmit = event => {
     event.preventDefault();
-    const id = html.edit.id.getAttribute("data-edit-form");
+    const id = html.edit.id.getAttribute("data-edit-id");
     const order = state.orders[id];
-    console.log(order)       
+    console.log("Original Order:",order)   ;    
     order.title = html.edit.title.value;
     order.table = html.edit.table.value;
     order.column = html.edit.column.value;
     order.created = new Date();
-
+    console.log("Updated Order:", order);
     handleEditSubmitReset();
 };
 
-// const handleEditSubmitReset = () => {
-//     // Update state orders based on the edited data in the HTML form
-//     const Id = html.edit.id.getAttribute("data-edit-overlay");
-//     if (Id) {
-//         state.orders[Id].title = html.edit.title.value;
-//         state.orders[Id].table = html.edit.table.value;
-//         state.orders[Id].column = html.edit.column.value;
-//         state.orders[Id].created = new Date();
-//     }
-
 //     // Clear HTML columns
-//     Object.values(html.columns).forEach(column => {
-//         column.innerHTML = "";
-//     });
-
-//     // Rebuild HTML elements based on the updated state orders
-//     Object.values(state.orders).forEach(item => {
-//         const element = createOrderHtml(item);
-//         html.columns[item.column].appendChild(element);
-//     });
-
-//     // Reset and hide the edit form
-//     html.edit.form.reset();
-//     html.edit.overlay.open = false;
-// };
 const handleEditSubmitReset = () => {
     Object.values(html.columns).forEach(column => {
       column.innerHTML = "";
@@ -239,21 +204,3 @@ for (const htmlColumn of Object.values(html.columns)) {
 for (const htmlArea of Object.values(html.area)) {
     htmlArea.addEventListener('dragover', handleDragOver);
 };
-
-
-// const handleEditSubmit = (event) => {
-//   event.preventDefault();
-
-//   const editingID = html.edit.id.value;
-//   state.orders[editingID].title = html.edit.title.value;
-//   state.orders[editingID].table = html.edit.table.value;
-//   state.orders[editingID].column = html.edit.column.value;
-
-//   const htmlSource = document.querySelector(`[data-id="${editingID}"]`);
-//   htmlSource.remove();
-//   html.columns[state.orders[editingID].column].appendChild(
-//     createOrderHtml(state.orders[editingID])
-//   );
-//   html.edit.overlay.open = false;
-//   html.other.add.focus();
-// };
