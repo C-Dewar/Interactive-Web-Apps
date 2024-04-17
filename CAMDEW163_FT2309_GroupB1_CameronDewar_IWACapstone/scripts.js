@@ -239,4 +239,4 @@ dataShowMoreButton.addEventListener('click', () => {
 console.log(data.description.length)
 
 
-// Overflow Y: A"value" scroll:  potential solution for including the full description
+    
